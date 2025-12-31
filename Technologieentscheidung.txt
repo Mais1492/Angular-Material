@@ -1,0 +1,23 @@
+https://github.com/Mais1492/Angular-Material
+
+# CSS Grid
+Ich habe mich bei der Technologie für die Verwendung von CSS Grid entschieden.
+
+## Projekt
+Prinzipiell ist für mich das Ziel in Projekten die Anzahl an Abhängigkeiten möglichst niedrig zu halten.
+CSS ist bereits im Projekt integriert und vermutlich entstehen bei der Verwendung von Angular Material mit CSS Grid weniger
+Probleme als bei Bootstrap.
+
+## Vorteile
+CSS Grid macht komponentenabhängige Styles über die jeweiligen .scss Files nachvollziehbar und intuitiv.
+Vertikales Alignment und flexible Spalenbreiten mit den Funktionen "minmax()" und "fr" empfand ich als sehr intuitiv.
+Responsives Design mit @media Queries ist sehr leicht verständlich.
+
+## Nachteile
+Bootstrap baut von Natur aus auf einem 12-Spalten Grid auf und hat daher weniger Setupaufwand.
+Bei der richtigen Verwendung von Bootstrap kann man mit wenigen Definitionen das Layout sehr schnell anpassen.
+
+## Allgemein
+Ich habe keine besonders umfangreichen (positiven) Vorerfahrungen mit Bootstrap. 
+Der zusätzliche Setupaufwand von CSS Grid wird durch die Vorteile der präziseren Kontrolle über die Layout
+mehr als aufgewogen.
