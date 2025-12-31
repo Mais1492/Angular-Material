@@ -1,6 +1,6 @@
 <h1>Alle Kurse</h1>
 
-<div class="data-table">
+<div class="data-table courses">
   <div class="data-grid header">
     <div>Kurs</div>
     <div>Veranstaltungsort</div>
@@ -32,15 +32,18 @@
 </div>
 
 <h1>Alle Anmeldungen</h1>
-<div class="registration-grid header">
-  <div>Name</div>
-  <div>Geburtsdatum</div>
-  <div>Kurs</div>
+
+<div class="data-table registrations">
+  <div class="data-grid header">
+    <div>Name</div>
+    <div>Geburtsdatum</div>
+    <div>Kurs</div>
+  </div>
+  @for(registration of store.registrations; track $index) {
+  <div class="data-grid row">
+    <div>{{ registration.name }}</div>
+    <div>{{ registration.birthdate }}</div>
+    <div>{{ registration.course?.name }}</div>
+  </div>
+  }
 </div>
-@for(registration of store.registrations; track $index) {
-<div class="registration-grid row">
-  <div>{{ registration.name }}</div>
-  <div>{{ registration.birthdate }}</div>
-  <div>{{ registration.course?.name }}</div>
-</div>
-}

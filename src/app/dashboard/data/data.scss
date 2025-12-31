@@ -1,36 +1,57 @@
+/* Unterschiedliche Spaltenanzahlen und -breiten */
 .data-table {
   display: grid;
-  grid-template-columns:
+  gap: 1rem;
+
+  &.courses {  
+    grid-template-columns:
     minmax(0, 2fr)
     minmax(0, 2fr)
-    minmax(0, 3fr)
+    minmax(0, 2fr)
     minmax(0, 1fr)
     minmax(0, 2fr)
-    minmax(0, 3fr);
-  gap: 1rem;
+    minmax(0, 4fr);
+  }
+
+  &.registrations {  
+    grid-template-columns:
+    minmax(0, 3fr)
+    minmax(0, 3fr)
+    minmax(0, 4fr);
+  }
+  
   > div {
     overflow-wrap: break-word;
   }
 }
 
+.data-grid.header {
+  font-weight: bold;
+  border-bottom: 2px solid #ccc;
+}
+
+/* Einrückung der Listenpunkte verringern (->Alignment) */
+.data-table ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    @media (max-width: 768px) {
+  .data-table ul {
+    padding-left: 0.5rem;
+  }
+}
+}
+
+/* Alignment von Header- und Data-Cells  */
 .data-grid {
     display: contents;
 }
 
-.data-grid.header {
-  font-weight: bold;
-  border-bottom: 2px solid #ccc;
-  > div {
-    word-break: normal;
-    overflow-wrap: normal;
-    hyphens: auto;
-  }
-}
 
 /* Desktop: Zeilenhöhe 100px (->Liste) & Zentrierung */
-.data-grid.row {
-  @media (min-width: 769px) {
-    height: 100px;
+@media (min-width: 769px) {
+  .data-grid.row > div {
+    display: flex;
     align-items: center;
+    height: 100px;
   }
 }

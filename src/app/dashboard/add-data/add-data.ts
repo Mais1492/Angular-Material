@@ -29,12 +29,13 @@ export class AddData {
   public backend = inject(Backend);
   private fb = inject(FormBuilder);
   public signupForm: any;
+  
   @ViewChild(FormGroupDirective)
   private formDirective!: FormGroupDirective;
 
   ngOnInit() {
     this.signupForm = this.fb.group({
-      name: ['', Validators.required],
+      name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(31)]],
       birthdate: ['', Validators.required],
       courseId: ['', Validators.required],
       newsletter: [false]

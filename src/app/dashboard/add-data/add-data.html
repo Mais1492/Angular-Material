@@ -5,9 +5,17 @@
     <mat-label>Name</mat-label>
     <input matInput formControlName="name" required />
 
-    @if (signupForm.controls.name.invalid && signupForm.controls.name.touched
+    @if (signupForm.controls.name?.errors?.required && signupForm.controls.name.touched
     ) {
     <mat-error>Name ist erforderlich</mat-error>
+    }
+    @if (signupForm.controls.name?.errors?.minlength  && signupForm.controls.name.touched
+    ) {
+    <mat-error>Min. {{ signupForm.controls.name?.errors?.minlength.requiredLength }} Zeichen</mat-error>
+    }
+    @if (signupForm.controls.name?.errors?.maxlength  && signupForm.controls.name.touched
+    ) {
+    <mat-error>Max. {{ signupForm.controls.name?.errors?.maxlength.requiredLength }} Zeichen</mat-error>
     }
   </mat-form-field>
 
