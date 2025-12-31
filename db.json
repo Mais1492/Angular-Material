@@ -5,8 +5,14 @@
       "name": "Schnuppertauchen",
       "instructor": "Maximilian Tiefgang",
       "dates": [
-        { "begin": "2024-11-13T17:00:00", "end": "2024-11-13T19:00:00" },
-        { "begin": "2024-11-14T17:00:00", "end": "2024-11-14T19:00:00" }
+        {
+          "begin": "2024-11-13T17:00:00",
+          "end": "2024-11-13T19:00:00"
+        },
+        {
+          "begin": "2024-11-14T17:00:00",
+          "end": "2024-11-14T19:00:00"
+        }
       ],
       "eventLocationId": 1
     },
@@ -15,8 +21,14 @@
       "name": "Reiten",
       "instructor": "Cowboy Tim",
       "dates": [
-        { "begin": "2024-11-13T17:00:00", "end": "2024-11-13T19:00:00" },
-        { "begin": "2024-11-14T17:00:00", "end": "2024-11-14T19:00:00" }
+        {
+          "begin": "2024-11-13T17:00:00",
+          "end": "2024-11-13T19:00:00"
+        },
+        {
+          "begin": "2024-11-14T17:00:00",
+          "end": "2024-11-14T19:00:00"
+        }
       ],
       "eventLocationId": 2
     },
@@ -25,8 +37,14 @@
       "name": "Tennis",
       "instructor": "Cowboy Tim",
       "dates": [
-        { "begin": "2024-11-13T17:00:00", "end": "2024-11-13T19:00:00" },
-        { "begin": "2024-11-14T17:00:00", "end": "2024-11-14T19:00:00" }
+        {
+          "begin": "2024-11-13T17:00:00",
+          "end": "2024-11-13T19:00:00"
+        },
+        {
+          "begin": "2024-11-14T17:00:00",
+          "end": "2024-11-14T19:00:00"
+        }
       ],
       "eventLocationId": 2
     },
@@ -35,8 +53,14 @@
       "name": "Yoga",
       "instructor": "Manuela Ganzentspannt",
       "dates": [
-        { "begin": "2024-11-13T17:00:00", "end": "2024-11-13T19:00:00" },
-        { "begin": "2024-11-14T17:00:00", "end": "2024-11-14T19:00:00" }
+        {
+          "begin": "2024-11-13T17:00:00",
+          "end": "2024-11-13T19:00:00"
+        },
+        {
+          "begin": "2024-11-14T17:00:00",
+          "end": "2024-11-14T19:00:00"
+        }
       ],
       "eventLocationId": 3
     }
@@ -73,6 +97,62 @@
       "name": "Julia",
       "birthdate": "2024-11-13",
       "courseId": "_iL775p"
+    },
+    {
+      "name": "asd",
+      "birthdate": "2025-12-02",
+      "courseId": "_iL175j",
+      "newsletter": true,
+      "id": 3
+    },
+    {
+      "name": "ee",
+      "birthdate": "2025-12-02",
+      "courseId": "_iL775o",
+      "newsletter": false,
+      "id": 4
+    },
+    {
+      "name": "uu",
+      "birthdate": "2025-12-04",
+      "courseId": "_iL775o",
+      "newsletter": false,
+      "id": 5
+    },
+    {
+      "name": "ee",
+      "birthdate": "2025-12-02",
+      "courseId": "_iL775p",
+      "newsletter": false,
+      "id": 6
+    },
+    {
+      "name": "qq",
+      "birthdate": "2025-12-15",
+      "courseId": "_iL175j",
+      "newsletter": false,
+      "id": 7
+    },
+    {
+      "name": "zz",
+      "birthdate": "2025-11-30",
+      "courseId": "_iL175j",
+      "newsletter": true,
+      "id": 8
+    },
+    {
+      "name": "öö",
+      "birthdate": "2025-12-03",
+      "courseId": "_iL175j",
+      "newsletter": false,
+      "id": 9
+    },
+    {
+      "name": "p",
+      "birthdate": "2025-12-10",
+      "courseId": "_iL775j",
+      "newsletter": true,
+      "id": 10
     }
   ]
 }

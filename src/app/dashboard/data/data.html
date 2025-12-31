@@ -1,21 +1,23 @@
 <h1>Alle Kurse</h1>
-<table>
-  <tr>
-    <th>Kurs</th>
-    <th>Veranstaltungsort</th>
-    <th>Adresse des Veranstaltungsortes</th>
-    <th>Öffentlich erreichbar?</th>
-    <th>Kursleiter</th>
-    <th>Alle Termine</th>
-  </tr>
+
+<div class="data-table">
+  <div class="data-grid header">
+    <div>Kurs</div>
+    <div>Veranstaltungsort</div>
+    <div>Adresse des Veranstaltungsortes</div>
+    <div>Öffentlich erreichbar?</div>
+    <div>Kursleiter</div>
+    <div>Alle Termine</div>
+  </div>
+
   @for(course of store.courses; track $index) {
-  <tr>
-    <td>{{ course.name }}</td>
-    <td>{{ course.eventLocation.name }}</td>
-    <td>{{ course.eventLocation.address }}</td>
-    <td>{{ course.eventLocation.venueByPublicTansport == true ? 'Ja' : 'Nein' }}</td>
-    <td>{{ course.instructor }}</td>
-    <td>
+  <div class="data-grid row">
+    <div>{{ course.name }}</div>
+    <div>{{ course.eventLocation.name }}</div>
+    <div>{{ course.eventLocation.address }}</div>
+    <div>{{ course.eventLocation.venueByPublicTansport == true ? 'Ja' : 'Nein' }}</div>
+    <div>{{ course.instructor }}</div>
+    <div>
       <ul>
         @for(date of course.dates; track $index) {
         <li>
@@ -24,27 +26,21 @@
         </li>
         }
       </ul>
-    </td>
-  </tr>
+    </div>
+  </div>
   }
-</table>
+</div>
 
 <h1>Alle Anmeldungen</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Geburtsdatum</th>
-      <th>Kurs</th>
-    </tr>
-  </thead>
-  <tbody>
-    @for(registration of store.registrations; track $index) {
-    <tr>
-      <td>{{ registration.name }}</td>
-      <td>{{ registration.birthdate }}</td>
-      <td>{{ registration.course?.name }}</td>
-    </tr>
-    }
-  </tbody>
-</table>
+<div class="registration-grid header">
+  <div>Name</div>
+  <div>Geburtsdatum</div>
+  <div>Kurs</div>
+</div>
+@for(registration of store.registrations; track $index) {
+<div class="registration-grid row">
+  <div>{{ registration.name }}</div>
+  <div>{{ registration.birthdate }}</div>
+  <div>{{ registration.course?.name }}</div>
+</div>
+}

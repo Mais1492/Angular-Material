@@ -1,0 +1,21 @@
+.page-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+/* Desktop: 10 zentrierte Spalten */
+.page-content {
+  grid-column: 2 / span 10;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* Mobile: Komplette Breite (12 Spalten) & */
+@media (max-width: 768px) {
+  .page-content {
+    grid-column: 1 / -1;
+    padding: 0 1rem;
+  }
+}
