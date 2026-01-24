@@ -17,6 +17,7 @@ export class Backend {
       .get<Course[]>('http://localhost:5000/courses?_expand=eventLocation')
       .subscribe((data) => {
         this.store.courses = data;
+        this.store.isLoading = false;
       });
   }
 
@@ -25,6 +26,7 @@ export class Backend {
       .get<RegistrationDto[]>('http://localhost:5000/registrations?_expand=course')
       .subscribe((data) => {
         this.store.registrations = data;
+        this.store.isLoading = false;
       });
   }
 
@@ -32,5 +34,11 @@ export class Backend {
     this.http.post('http://localhost:5000/registrations', registration).subscribe((_) => {
       this.getRegistrations();
     });
+  }
+
+  public deleteRegistration(registrationId: string) {
+    this.http.delete(`http://localhost:5000/registrations/${registrationId}`).subscribe(_ => {
+      this.getRegistrations();
+    })
   }
 }
