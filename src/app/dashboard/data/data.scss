@@ -28,8 +28,9 @@
 
 .data-grid.header {
   font-weight: bold;
-  border-bottom: 2px solid #ccc;
+  border-bottom: 2px solid #000000;
 }
+
 
 /* Einrückung der Listenpunkte verringern (->Alignment) */
 .data-table ul {
@@ -82,4 +83,21 @@
   justify-content: center;
   margin-top: 1rem;
   width: 100%;
+}
+
+/* 1. Rahmen um Zellen */
+.data-table.registrations .data-grid.row > div,
+.data-table.courses .data-grid.row > div {
+  border: 1pt solid #404040;
+  padding-left: 1rem;
+}
+
+/* 1. Gestreifte Zeilen */
+.data-grid.row:nth-child(even) > div {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* 1. Hover-Effekt */
+.data-grid.row:hover > div {
+  background-color: rgba(0, 200, 0, 0.08);
 }
