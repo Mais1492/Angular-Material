@@ -8,6 +8,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from "@angular/material/button";
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-data',
@@ -19,7 +20,8 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    ReactiveFormsModule
+    MatSnackBarModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './add-data.html',
   styleUrl: './add-data.scss',
@@ -29,6 +31,7 @@ export class AddData {
   public backend = inject(Backend);
   private fb = inject(FormBuilder);
   public signupForm: any;
+  private snackBar = inject(MatSnackBar);
   
   @ViewChild(FormGroupDirective)
   private formDirective!: FormGroupDirective;
@@ -52,6 +55,12 @@ export class AddData {
       }
 
       this.backend.addRegistration(requestBody);
+
+      this.snackBar.open('Anmeldung erfolgreich!', 'Schließen', {
+        duration: 3000,
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+      });
       
       this.formDirective.resetForm({
         name: '',
