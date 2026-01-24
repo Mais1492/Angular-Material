@@ -26,8 +26,6 @@ export class Backend {
     this.http
       .get<RegistrationDto[]>('http://localhost:5000/registrations?_expand=course')
       .subscribe((data) => {
-          console.log('registrations loaded:', data.length);
-
         this.store.registrations = data;
         this.store.isLoading = false;
         this.store.loadingRegistrationIds.clear();
