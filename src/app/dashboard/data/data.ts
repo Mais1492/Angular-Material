@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Store } from '../../shared/store';
 import { Backend } from '../../shared/backend';
@@ -14,7 +14,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
     LoadingSpinner,
     MatDialogModule,
     MatPaginatorModule
-],
+  ],
   templateUrl: './data.html',
   styleUrl: './data.scss',
 })
@@ -22,6 +22,8 @@ export class Data {
   public store = inject(Store);
   private backendService = inject(Backend);
   private dialog = inject(MatDialog);
+  @ViewChild('registrationsTable') registrationsTable!: ElementRef<HTMLDivElement>;
+
 
   coursePageSize = 5;
   coursePageIndex = 0;
@@ -58,16 +60,23 @@ export class Data {
 
       this.backendService.deleteRegistration(id).subscribe({
         next: () => {
-          const totalItems = this.store.registrations.length - 1;
+          this.store.loadingRegistrationIds.delete(id);
 
+          const totalItems = this.store.registrations.length - 1;
           const maxPageIndex = Math.max(
             0,
             Math.ceil(totalItems / this.registrationPageSize) - 1
           );
-
           if (this.registrationPageIndex > maxPageIndex) {
             this.registrationPageIndex = maxPageIndex;
           }
+
+          setTimeout(() => {
+            this.registrationsTable?.nativeElement?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }, 0);
         },
         error: () => {
           this.store.loadingRegistrationIds.delete(id);
@@ -77,8 +86,8 @@ export class Data {
   }
 
   isRowLoading(id: string): boolean {
-      return this.store.loadingRegistrationIds.has(id);
-    }
+    return this.store.loadingRegistrationIds.has(id);
+  }
 
   onCoursePageChange(event: PageEvent) {
     this.coursePageIndex = event.pageIndex;
