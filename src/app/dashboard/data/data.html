@@ -10,7 +10,7 @@
     <div>Alle Termine</div>
   </div>
 
-  @for(course of store.courses; track $index) {
+@for(course of pagedCourses; track course.id) {
   <div class="data-grid row">
     <div>{{ course.name }}</div>
     <div>{{ course.eventLocation.name }}</div>
@@ -29,6 +29,17 @@
     </div>
   </div>
   }
+</div>
+<div class="paginator-container">
+  <mat-paginator
+    [length]="store.courses.length"
+    [pageSize]="coursePageSize"
+    [pageIndex]="coursePageIndex"
+    [pageSizeOptions]="[5]"
+    [hidePageSize]="true"
+    showFirstLastButtons
+    (page)="onCoursePageChange($event)">
+  </mat-paginator>
 </div>
 
 <h1>Alle Anmeldungen</h1>
@@ -61,7 +72,7 @@
 </div>
   
 <div class="paginator-container">
-  <mat-paginator [length]="store.registrations.length" [pageSize]="pageSize" [pageIndex]="pageIndex"
-    [pageSizeOptions]="[5]" [hidePageSize]="true" showFirstLastButtons (page)="onPageChange($event)">
+  <mat-paginator [length]="store.registrations.length" [pageSize]="registrationPageSize" [pageIndex]="registrationPageIndex"
+    [pageSizeOptions]="[5]" [hidePageSize]="true" showFirstLastButtons (page)="onRegistrationPageChange($event)">
   </mat-paginator>
 </div>

@@ -23,12 +23,20 @@ export class Data {
   private backendService = inject(Backend);
   private dialog = inject(MatDialog);
 
-  pageSize = 5;
-  pageIndex = 0;
+  coursePageSize = 5;
+  coursePageIndex = 0;
+  registrationPageSize = 5;
+  registrationPageIndex = 0;
+
+  get pagedCourses() {
+    const start = this.coursePageIndex * this.coursePageSize;
+    const end = start + this.coursePageSize;
+    return this.store.courses.slice(start, end);
+  }
 
   get pagedRegistrations() {
-    const start = this.pageIndex * this.pageSize;
-    const end = start + this.pageSize;
+    const start = this.registrationPageIndex * this.registrationPageSize;
+    const end = start + this.registrationPageSize;
     return this.store.registrations.slice(start, end);
   }
 
@@ -54,11 +62,11 @@ export class Data {
 
           const maxPageIndex = Math.max(
             0,
-            Math.ceil(totalItems / this.pageSize) - 1
+            Math.ceil(totalItems / this.registrationPageSize) - 1
           );
 
-          if (this.pageIndex > maxPageIndex) {
-            this.pageIndex = maxPageIndex;
+          if (this.registrationPageIndex > maxPageIndex) {
+            this.registrationPageIndex = maxPageIndex;
           }
         },
         error: () => {
@@ -72,7 +80,12 @@ export class Data {
       return this.store.loadingRegistrationIds.has(id);
     }
 
-  onPageChange(event: PageEvent) {
-      this.pageIndex = event.pageIndex;
-    }
+  onCoursePageChange(event: PageEvent) {
+    this.coursePageIndex = event.pageIndex;
+  }
+
+  onRegistrationPageChange(event: PageEvent) {
+    this.registrationPageIndex = event.pageIndex;
+  }
+
 }
