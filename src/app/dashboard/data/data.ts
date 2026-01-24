@@ -19,7 +19,6 @@ export class Data {
   public store = inject(Store);
   private backendService = inject(Backend);
 
-  loadingRegistrationIds = new Set<string>();
 
   pageSize = 5;
   pageIndex = 0;
@@ -33,7 +32,7 @@ export class Data {
   ngOnInit() {}
 
   deleteRegistration(id: string) {
-  this.loadingRegistrationIds.add(id);
+  this.store.loadingRegistrationIds.add(id);
 
   this.backendService.deleteRegistration(id).subscribe({
     next: () => {
@@ -49,13 +48,13 @@ export class Data {
       }
     },
     error: () => {
-      this.loadingRegistrationIds.delete(id);
+      this.store.loadingRegistrationIds.delete(id);
     }
   });
 }
 
   isRowLoading(id: string): boolean {
-    return this.loadingRegistrationIds.has(id);
+    return this.store.loadingRegistrationIds.has(id);
   }
 
   onPageChange(event: PageEvent) {

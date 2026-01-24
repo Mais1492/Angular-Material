@@ -9,4 +9,5 @@ export class Store {
   public courses: Course[] = [];
   public registrations: RegistrationDto[] = [];
   public isLoading = true;
+  public loadingRegistrationIds = new Set<string>();
 }

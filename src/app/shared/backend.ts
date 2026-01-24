@@ -30,6 +30,8 @@ export class Backend {
 
         this.store.registrations = data;
         this.store.isLoading = false;
+        this.store.loadingRegistrationIds.clear();
+
       });
   }
 
