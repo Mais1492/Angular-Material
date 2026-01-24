@@ -56,3 +56,30 @@
     height: 100px;
   }
 }
+
+.action-cell {
+  position: relative;
+}
+
+/* "Deaktiviert" die Zeile, wenn ein Eintrag gelöscht wird */
+.data-grid.row.disabled-row > div {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.action-cell app-loading-spinner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  background-color: rgba(255,255,255,0.2);
+  z-index: 10;
+}
+
+.paginator-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  width: 100%;
+}

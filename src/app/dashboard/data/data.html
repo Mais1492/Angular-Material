@@ -40,12 +40,28 @@
     <div>Kurs</div>
     <div>Aktion</div>
   </div>
-  @for(registration of store.registrations; track $index) {
-  <div class="data-grid row">
+
+  @for (registration of pagedRegistrations; track registration.id) {
+  <div class="data-grid row" [class.disabled-row]="isRowLoading(registration.id)">
     <div>{{ registration.name }}</div>
     <div>{{ registration.birthdate }}</div>
     <div>{{ registration.course?.name }}</div>
-    <div><button (click)="deleteRegistration(registration.id)">Anmeldung löschen</button></div>
+    <div class="action-cell">
+      @if (isRowLoading(registration.id)) {
+      <app-loading-spinner mode="row"></app-loading-spinner>
+      } @if (!isRowLoading(registration.id)) {
+      <button (click)="deleteRegistration(registration.id)" 
+      [disabled]="isRowLoading(registration.id)">
+        Anmeldung löschen
+      </button>
+      }
+    </div>
   </div>
   }
+</div>
+  
+<div class="paginator-container">
+  <mat-paginator [length]="store.registrations.length" [pageSize]="pageSize" [pageIndex]="pageIndex"
+    [pageSizeOptions]="[5]" [hidePageSize]="true" showFirstLastButtons (page)="onPageChange($event)">
+  </mat-paginator>
 </div>

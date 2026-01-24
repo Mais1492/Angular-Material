@@ -4,6 +4,7 @@ import { rxResource } from '@angular/core/rxjs-interop';
 import { Store } from './store';
 import { Course } from './Interfaces/Course';
 import { RegistrationDto, RegistrationModel } from './Interfaces/Registration';
+import { tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -25,6 +26,8 @@ export class Backend {
     this.http
       .get<RegistrationDto[]>('http://localhost:5000/registrations?_expand=course')
       .subscribe((data) => {
+          console.log('registrations loaded:', data.length);
+
         this.store.registrations = data;
         this.store.isLoading = false;
       });
@@ -37,8 +40,10 @@ export class Backend {
   }
 
   public deleteRegistration(registrationId: string) {
-    this.http.delete(`http://localhost:5000/registrations/${registrationId}`).subscribe(_ => {
-      this.getRegistrations();
-    })
-  }
+  return this.http
+    .delete(`http://localhost:5000/registrations/${registrationId}`)
+    .pipe(
+      tap(() => this.getRegistrations())
+    );
+}
 }

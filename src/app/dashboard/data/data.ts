@@ -2,20 +2,63 @@ import { Component, inject } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Store } from '../../shared/store';
 import { Backend } from '../../shared/backend';
+import { LoadingSpinner } from "../../loading-spinner/loading-spinner";
+import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-data',
-  imports: [DatePipe],
+  imports: [
+    DatePipe, 
+    LoadingSpinner, 
+    MatPaginatorModule
+  ],
   templateUrl: './data.html',
   styleUrl: './data.scss',
 })
 export class Data {
   public store = inject(Store);
-  private backendService = inject(Backend)
+  private backendService = inject(Backend);
+
+  loadingRegistrationIds = new Set<string>();
+
+  pageSize = 5;
+  pageIndex = 0;
+
+  get pagedRegistrations() {
+    const start = this.pageIndex * this.pageSize;
+    const end = start + this.pageSize;
+    return this.store.registrations.slice(start, end);
+}
 
   ngOnInit() {}
 
   deleteRegistration(id: string) {
-    this.backendService.deleteRegistration(id);
+  this.loadingRegistrationIds.add(id);
+
+  this.backendService.deleteRegistration(id).subscribe({
+    next: () => {
+      const totalItems = this.store.registrations.length - 1;
+
+      const maxPageIndex = Math.max(
+        0,
+        Math.ceil(totalItems / this.pageSize) - 1
+      );
+
+      if (this.pageIndex > maxPageIndex) {
+        this.pageIndex = maxPageIndex;
+      }
+    },
+    error: () => {
+      this.loadingRegistrationIds.delete(id);
+    }
+  });
+}
+
+  isRowLoading(id: string): boolean {
+    return this.loadingRegistrationIds.has(id);
+  }
+
+  onPageChange(event: PageEvent) {
+    this.pageIndex = event.pageIndex;
   }
 }

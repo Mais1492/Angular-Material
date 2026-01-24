@@ -109,6 +109,108 @@
       "birthdate": "2022-11-26",
       "courseId": "_iL775j",
       "id": 4
-    }
+    },
+	{
+    "name": "Löwe",
+    "birthdate": "2019-05-12",
+    "courseId": "_iL775o",
+    "id": 5
+  },
+  {
+    "name": "Tiger",
+    "birthdate": "2021-03-18",
+    "courseId": "_iL775p",
+    "id": 6
+  },
+  {
+    "name": "Zebra",
+    "birthdate": "2020-07-09",
+    "courseId": "_iL175j",
+    "id": 7
+  },
+  {
+    "name": "Affe",
+    "birthdate": "2018-12-01",
+    "courseId": "_iL775j",
+    "id": 8
+  },
+  {
+    "name": "Bär",
+    "birthdate": "2017-09-23",
+    "courseId": "_iL775o",
+    "id": 9
+  },
+  {
+    "name": "Wolf",
+    "birthdate": "2021-01-14",
+    "courseId": "_iL775p",
+    "id": 10
+  },
+  {
+    "name": "Fuchs",
+    "birthdate": "2020-04-30",
+    "courseId": "_iL175j",
+    "id": 11
+  },
+  {
+    "name": "Hase",
+    "birthdate": "2022-02-11",
+    "courseId": "_iL775j",
+    "id": 12
+  },
+  {
+    "name": "Reh",
+    "birthdate": "2019-08-06",
+    "courseId": "_iL775o",
+    "id": 13
+  },
+  {
+    "name": "Igel",
+    "birthdate": "2021-10-19",
+    "courseId": "_iL775p",
+    "id": 14
+  },
+  {
+    "name": "Dachs",
+    "birthdate": "2018-06-25",
+    "courseId": "_iL175j",
+    "id": 15
+  },
+  {
+    "name": "Otter",
+    "birthdate": "2020-12-03",
+    "courseId": "_iL775j",
+    "id": 16
+  },
+  {
+    "name": "Robbe",
+    "birthdate": "2019-11-15",
+    "courseId": "_iL775o",
+    "id": 17
+  },
+  {
+    "name": "Känguru",
+    "birthdate": "2021-05-08",
+    "courseId": "_iL775p",
+    "id": 18
+  },
+  {
+    "name": "Koala",
+    "birthdate": "2020-01-27",
+    "courseId": "_iL175j",
+    "id": 19
+  },
+  {
+    "name": "Panda",
+    "birthdate": "2017-03-02",
+    "courseId": "_iL775j",
+    "id": 20
+  },
+  {
+    "name": "Flamingo",
+    "birthdate": "2022-06-17",
+    "courseId": "_iL775o",
+    "id": 21
+  }
   ]
 }
