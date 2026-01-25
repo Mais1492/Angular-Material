@@ -28,8 +28,6 @@ export class Backend {
       .subscribe((data) => {
         this.store.registrations = data;
         this.store.isLoading = false;
-        this.store.loadingRegistrationIds.clear();
-
       });
   }
 
@@ -41,9 +39,6 @@ export class Backend {
 
   public deleteRegistration(registrationId: string) {
   return this.http
-    .delete(`http://localhost:5000/registrations/${registrationId}`)
-    .pipe(
-      tap(() => this.getRegistrations())
-    );
+    .delete(`http://localhost:5000/registrations/${registrationId}`);
 }
 }

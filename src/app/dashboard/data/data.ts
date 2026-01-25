@@ -6,6 +6,7 @@ import { LoadingSpinner } from "../../loading-spinner/loading-spinner";
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { ConfirmationDialog } from '../../shared/confirmation-dialog/confirmation-dialog';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-data',
@@ -59,17 +60,22 @@ export class Data {
       this.store.loadingRegistrationIds.add(id);
 
       this.backendService.deleteRegistration(id).subscribe({
-        next: () => {
-          this.store.loadingRegistrationIds.delete(id);
+      next: () => {
+        this.store.registrations = this.store.registrations.filter(
+          r => r.id !== id
+        );
 
-          const totalItems = this.store.registrations.length - 1;
-          const maxPageIndex = Math.max(
-            0,
-            Math.ceil(totalItems / this.registrationPageSize) - 1
-          );
-          if (this.registrationPageIndex > maxPageIndex) {
-            this.registrationPageIndex = maxPageIndex;
-          }
+        const totalItems = this.store.registrations.length;
+        const maxPageIndex = Math.max(
+          0,
+          Math.ceil(totalItems / this.registrationPageSize) - 1
+        );
+
+        if (this.registrationPageIndex > maxPageIndex) {
+          this.registrationPageIndex = maxPageIndex;
+        }
+
+        this.store.loadingRegistrationIds.delete(id);
 
           setTimeout(() => {
             this.registrationsTable?.nativeElement?.scrollIntoView({
