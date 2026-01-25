@@ -1,0 +1,32 @@
+1. Visuelle Trennung von Tabelleninhalten - umgesetzt
+Um Zeilen voneinander unterscheiden zu können, besitzt jede zweite Zeile einen hellgrauen Hintergrund.
+Um Zellen voneinander zu trennen wurde jeder Zelle ein Rahmen hinzugefügt.
+Um die aktuelle Position hervorzuheben, erhalten Zellen einen grünen Hintergrund on Mouseover.
+
+2. Bestätigungsdialog beim Löschen von Einträgen - umgesetzt
+Um unabsichtliches Löschen von Registrierungen zu verhindern, erscheint ein Bestätigungsdialog beim 
+Betätigen des "Anmeldung löschen"-Buttons.
+
+3. Erfolgsnachricht beim Eintragen in einen Kurs - umgesetzt
+Wenn eine Registrierung erfolgreich durchgeführt wurde, erscheint am unteren Ende des Bildschirms die
+Erfolgsnachricht "Anmeldung erfolgreich!".
+
+4. Pagination für Kurse - umgesetzt
+Analog zur Pagination in den Registrierungen, werden jetzt auch nur 5 Kurse gleichzeitig angezeigt und
+eine Seitennavigation wurde hinzugefügt.
+
+5. Seitenfokus - umgesetzt
+Beim Löschen von Registrierungen kann es passieren, dass die Tabelle aus dem Fokus gerät (wenn der 
+letzte Eintrag der letzten Seite gelöscht wird und eine neue Seite mit 5 Einträgen geladen wird).
+Um das zu vermeiden wird die Tabelle nun nach dem Löschen fokussiert.
+
+6. Responsives Design - nicht umgesetzt
+Nach Feedback von HÜ1 ist die Applikation nicht für kleine Bildschirme geeignet. 
+Um responsives Design zu gewährleisten, muss die Darstellung entsprechend der Bildschirmgröße angepasst werden.
+
+7. Fokus-Indikatoren für Accessibility - nicht umgesetzt
+Um die Website barrierefreier zu gestalten, wäre es gut das aktuell ausgewählte Formularfeld zu highlighten 
+und eine Navigation mit der Tabulator-Taste zu zu ermöglichen.
+
+Link zum Repository:
+https://github.com/Mais1492/Angular-Material
